@@ -59,9 +59,8 @@ def deal_card(asker_hand, asker_pairs, deck):
                         asker_pairs.append(card_1)
                         asker_hand.remove(card_1)
                         break
-                    else:
-                        asker_hand.append(card)
-                        break
+                if card not in asker_pairs:
+                    asker_hand.append(card)
         else:
             asker_hand.append(card)
 
