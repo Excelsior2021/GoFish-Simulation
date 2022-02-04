@@ -4,7 +4,7 @@ from deck_functions import *
 from random import choice
 
 def initial_pairs(hand):
-    '''Returns a list of pairs of values.'''
+    '''Returns an initial list of pairs of values.'''
     pairs = []
     for cardx in hand:
         for cardy in hand:
@@ -40,7 +40,7 @@ def ask_value(asker_hand, askee_hand, asker_pairs):
                 return True
 
 def deal_card(asker_hand, asker_pairs, deck):
-    '''Deals top card from the deck and compares value with player ask or with another value in player hand. 
+    '''Deals top card from the deck and compares value with the value the player asked fors or with another value in player hand. 
         If no matches, card added to player hand.'''
     if len(deck) > 0:
         card = deal_top_card(deck)
@@ -65,6 +65,7 @@ def deal_card(asker_hand, asker_pairs, deck):
             asker_hand.append(card)
 
 def turn(asker_hand, askee_hand, asker_pairs, deck):
+    """Initiates player's actions when it is player's turn."""
     ask_value(asker_hand, askee_hand, asker_pairs)
     pairs(asker_hand, asker_pairs)
     if ask_value:
